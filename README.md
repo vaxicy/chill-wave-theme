@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo/logo.png" alt="Chill Wave Theme icon" width="88">
+  <img src="https://raw.githubusercontent.com/vaxicy/chill-wave-theme/main/logo/logo.png" alt="Chill Wave Theme icon" width="88">
   <h1>Chill Wave Theme</h1>
   <p>A calm violet Chrome theme with soft lilac surfaces, near-white reading areas and one deep-blue accent.</p>
   <p>
@@ -19,9 +19,9 @@ Every layer is painted as one flat solid colour, so nothing competes for attenti
 
 ## Preview
 
-![Chill Wave Theme browser preview](store-assets/screenshots/en/screenshot-1-browser.png)
+![Chill Wave Theme browser preview](https://raw.githubusercontent.com/vaxicy/chill-wave-theme/main/store-assets/screenshots/en/screenshot-1-browser.png)
 
-![Chill Wave Theme colour palette](store-assets/screenshots/en/screenshot-2-introduction.png)
+![Chill Wave Theme colour palette](https://raw.githubusercontent.com/vaxicy/chill-wave-theme/main/store-assets/screenshots/en/screenshot-2-introduction.png)
 
 ## Color Palette
 
