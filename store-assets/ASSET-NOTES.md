@@ -41,10 +41,16 @@ not dissolve into the page background.
 
 - **Google mark on the new-tab page.** The manifest sets
   `properties.ntp_logo_alternate: 1`, so Chrome paints the mark in one flat
-  colour instead of the brand colours. The mockup paints it in the theme link
-  colour (Tide Blue), the tone a light new-tab surface resolves to. If the
-  installed browser renders a different tone, change the `.glogo` colour in
-  `scripts/generate-store-assets.py` and re-run — do not hand-edit the PNG.
+  colour instead of the brand colours. Tone and weight are sampled from the
+  installed browser: a soft grey `#9AA0A6` at semibold, 76px. If a browser
+  build renders it differently, change the `.glogo` values in
+  `scripts/generate-store-assets.py` and re-run — never hand-edit the PNG.
+- **Search field icons.** Chrome shows a grey microphone and the multicolour
+  Google Lens mark inside the new-tab search field; the mockup reproduces both
+  (Lens keeps its brand tones `#4285F4 / #EA4335 / #34A853 / #FBBC05`, sampled
+  from the installed browser).
+- **Top-right new-tab controls.** "Images" and "Apps" sit in the top-right of the
+  new-tab page in Chrome's own grey.
 - **Shortcut tiles** are page content, not theme surfaces; the mockup draws three
   of them (two in theme violet, one neutral "Add shortcut") the way Chrome lays
   them out on a fresh profile.

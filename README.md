@@ -47,9 +47,10 @@ Every layer is painted as one flat solid colour, so nothing competes for attenti
 
 Some parts of the browser are painted by Chrome itself rather than by the theme manifest. The store artwork follows what Chrome renders after installing this theme:
 
-- **Google mark on the new-tab page:** the manifest sets `ntp_logo_alternate: 1`, so Chrome draws it as one flat colour instead of the brand colours — on this ivory surface it resolves to the theme's Tide Blue.
+- **Google mark on the new-tab page:** the manifest sets `ntp_logo_alternate: 1`, so Chrome draws it as one flat colour instead of the brand colours — on this ivory surface it renders as a soft grey (`#9AA0A6`).
+- **Search field and page controls:** the grey microphone, the multicolour Lens mark and the "Images" / "Apps" buttons are Chrome's own, so they keep Chrome's tones.
 - **Shortcut tiles:** the round new-tab shortcuts are page content, drawn here in theme violet with a neutral "Add shortcut" tile.
-- **Chrome's own UI:** the star, the ⋮ menu, the download / Lens icons in the address bar and the Customize Chrome pill keep Chrome's own tones rather than the theme's.
+- **Chrome's own UI:** the star, the ⋮ menu, the download icon in the address bar and the Customize Chrome pill keep Chrome's own tones rather than the theme's.
 - **Window buttons:** minimize / maximize / close stay in the light tab-text tone against the lilac frame.
 - **Address bar:** the omnibox keeps its own near-white surface, so it reads slightly brighter than the toolbar around it.
 

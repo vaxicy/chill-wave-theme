@@ -136,6 +136,21 @@ IC_MORE = '<svg viewBox="0 0 16 16"><circle cx="8" cy="3.4" r="1.15" fill="curre
 IC_FOLDER = '<svg viewBox="0 0 16 16"><path d="M2.3 5a1.5 1.5 0 0 1 1.5-1.5h2.4l1.5 1.5h4.5A1.5 1.5 0 0 1 13.7 6.5v4.4a1.5 1.5 0 0 1-1.5 1.5H3.8a1.5 1.5 0 0 1-1.5-1.5z"/></svg>'
 IC_SEARCH = '<svg viewBox="0 0 16 16" class="mag"><circle cx="7" cy="7" r="4.6"/><path d="m10.6 10.6 3.4 3.4"/></svg>'
 IC_TUNE = '<svg viewBox="0 0 16 16"><path d="M3 5.5h10M3 10.5h10"/><circle cx="6" cy="5.5" r="1.8"/><circle cx="10.5" cy="10.5" r="1.8"/></svg>'
+IC_MIC = ('<svg viewBox="0 0 16 16"><rect x="6.1" y="2.1" width="3.8" height="7.1" rx="1.9"/>'
+          '<path d="M4.1 7.5a3.9 3.9 0 0 0 7.8 0"/><path d="M8 11.6v2.3"/><path d="M5.9 13.9h4.2"/></svg>')
+# Google Lens mark: the real one is multicolour, so it is drawn in brand tones
+# (sampled from the installed browser, not derived from the theme).
+IC_LENS_C = ('<svg viewBox="0 0 16 16">'
+             '<rect x="2.1" y="4.5" width="11.8" height="8.6" rx="2.3" fill="none" stroke="#4285F4" stroke-width="1.5"/>'
+             '<path d="M6.1 4.5l.9-1.6h2l.9 1.6" fill="none" stroke="#EA4335" stroke-width="1.5"/>'
+             '<circle cx="8" cy="8.7" r="2.2" fill="none" stroke="#34A853" stroke-width="1.5"/>'
+             '<circle cx="11.5" cy="6.5" r="0.85" fill="#FBBC05" stroke="none"/></svg>')
+IC_IMG = ('<svg viewBox="0 0 16 16"><rect x="2.1" y="3.4" width="11.8" height="9.2" rx="1.8"/>'
+          '<circle cx="5.9" cy="6.5" r="1.1"/><path d="m3.4 11.7 3.3-3.1 2.3 2.1 1.8-1.5 2.7 2.5"/></svg>')
+IC_GRID = ('<svg viewBox="0 0 16 16"><rect x="2.6" y="2.6" width="4.4" height="4.4" rx="1.1" stroke="none" fill="currentColor"/>'
+           '<rect x="9" y="2.6" width="4.4" height="4.4" rx="1.1" stroke="none" fill="currentColor"/>'
+           '<rect x="2.6" y="9" width="4.4" height="4.4" rx="1.1" stroke="none" fill="currentColor"/>'
+           '<rect x="9" y="9" width="4.4" height="4.4" rx="1.1" stroke="none" fill="currentColor"/></svg>')
 
 # new-tab shortcut tiles: (glyph, label, disc colour, glyph colour)
 def _tile(path, label, disc, glyph):
@@ -239,9 +254,10 @@ svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-l
 /* new tab page */
 .ntp{flex:1;background:var(--ntp-bg);position:relative;display:flex;
      flex-direction:column;align-items:center;padding-top:72px}
-/* Chrome draws the alternate Google mark in one flat colour; calibrated here to
-   the theme link colour - change this if the installed browser renders another tone */
-.glogo{font-size:68px;font-weight:400;letter-spacing:-1.5px;color:var(--ntp-link);
+/* Chrome draws the alternate Google mark in one flat colour; tone sampled from the
+   installed browser (#9AA0A6 soft grey on this ivory surface) - update here if it
+   renders differently and re-run, never patch the PNG. */
+.glogo{font-size:76px;font-weight:600;letter-spacing:-1.5px;color:#9AA0A6;
        font-family:'Segoe UI',Arial,sans-serif;line-height:1}
 .search{margin-top:24px;width:584px;height:54px;background:#FFFFFF;border-radius:27px;
         display:flex;align-items:center;gap:13px;padding:0 20px;
@@ -249,7 +265,12 @@ svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-l
 .search .mag{width:18px;height:18px;opacity:.75}
 .search span{font-size:16px;color:var(--ink);opacity:.78;flex:1}
 .search .right{gap:14px}
-.search .right svg{width:17px;height:17px}
+.search .right svg{width:18px;height:18px}
+.search .right .mic{color:#5F6368}
+.ntp-top{position:absolute;right:22px;top:14px;display:flex;align-items:center;gap:20px;
+         color:#5F6368}
+.ntp-act{display:flex;align-items:center;gap:7px;font-size:12.5px;opacity:.92}
+.ntp-act svg{width:15px;height:15px;stroke-width:1.5}
 .tiles{margin-top:28px;display:flex;gap:36px}
 .tile{display:flex;flex-direction:column;align-items:center;width:76px}
 .tile .disc{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;
@@ -278,9 +299,13 @@ svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-l
   </div>
   <div class="bmbar">$BOOKMARKS</div>
   <div class="ntp">
+    <div class="ntp-top">
+      <div class="ntp-act">$IC_IMG<span>Images</span></div>
+      <div class="ntp-act">$IC_GRID<span>Apps</span></div>
+    </div>
     <div class="glogo">Google</div>
     <div class="search">$IC_SEARCH<span>Search Google or type a URL</span>
-      <div class="right"><span class="gblue">$IC_DL</span><span class="gblue">$IC_LENS</span></div>
+      <div class="right"><span class="mic">$IC_MIC</span><span>$IC_LENS_C</span></div>
     </div>
     <div class="tiles">$TILES</div>
     <div class="customize">$IC_TUNE<span>Customize Chrome</span></div>
@@ -305,7 +330,8 @@ def html_browser():
     sub.update(TABS="".join(tabs), BOOKMARKS=bookmarks, WINBTNS=winbtns, TILES=tiles,
                IC_BACK=IC_BACK, IC_FWD=IC_FWD, IC_RELOAD=IC_RELOAD, IC_SEARCH=IC_SEARCH,
                IC_DL=IC_DL, IC_LENS=IC_LENS, IC_STAR=IC_STAR, IC_MORE=IC_MORE,
-               IC_FOLDER=IC_FOLDER, IC_TUNE=IC_TUNE)
+               IC_FOLDER=IC_FOLDER, IC_TUNE=IC_TUNE, IC_MIC=IC_MIC,
+               IC_LENS_C=IC_LENS_C, IC_IMG=IC_IMG, IC_GRID=IC_GRID)
     return BROWSER_HTML.substitute(sub)
 
 
