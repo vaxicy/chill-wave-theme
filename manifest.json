@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "name": "Chill Wave Theme",
   "description": "Relax in a soothing, cool ambiance.",
+  "icons": {
+    "128": "logo/logo.png"
+  },
   "theme": {
     "colors": {
       "frame": [
