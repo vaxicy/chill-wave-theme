@@ -41,11 +41,15 @@ not dissolve into the page background.
 
 - **Google mark on the new-tab page.** The manifest sets
   `properties.ntp_logo_alternate: 1`, so Chrome paints the mark in one flat
-  colour instead of the brand colours. The mockup uses a neutral grey for it.
-  If the installed browser renders a different tone, update `INK` usage in
+  colour instead of the brand colours. The mockup paints it in the theme link
+  colour (Tide Blue), the tone a light new-tab surface resolves to. If the
+  installed browser renders a different tone, change the `.glogo` colour in
   `scripts/generate-store-assets.py` and re-run — do not hand-edit the PNG.
-- **Shortcut tiles** are page content, not theme surfaces, so they stay white
-  with a neutral grey glyph.
+- **Shortcut tiles** are page content, not theme surfaces; the mockup draws three
+  of them (two in theme violet, one neutral "Add shortcut") the way Chrome lays
+  them out on a fresh profile.
+- **Toolbar and omnibox glyphs** (star, ⋮, download, Lens) use Chrome's own UI
+  colours, matched to the real browser rather than derived from the theme.
 - **Customize Chrome pill** is drawn by Chrome itself and keeps its own dark
   surface (`#202124`) with white text.
 - **Window buttons** keep the light tab-text tone against the lilac frame.

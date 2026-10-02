@@ -129,23 +129,27 @@ def data_uri(path):
 IC_BACK = '<svg viewBox="0 0 16 16"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg>'
 IC_FWD = '<svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5"/></svg>'
 IC_RELOAD = '<svg viewBox="0 0 16 16"><path d="M13 8a5 5 0 1 1-1.6-3.6"/><path d="M13.2 2.6v2.9h-2.9"/></svg>'
-IC_APPS = '<svg viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="4.6" height="4.6" rx="1.2"/><rect x="8.9" y="2.5" width="4.6" height="4.6" rx="1.2"/><rect x="2.5" y="8.9" width="4.6" height="4.6" rx="1.2"/><rect x="8.9" y="8.9" width="4.6" height="4.6" rx="1.2"/></svg>'
-IC_DL = '<svg viewBox="0 0 16 16"><path d="M8 2.5v7.4"/><path d="M4.8 7 8 10.2 11.2 7"/><path d="M3 13.2h10"/></svg>'
-IC_BM = '<svg viewBox="0 0 16 16"><path d="M4 2.6h8v11l-4-3.1-4 3.1z"/></svg>'
-IC_STAR = '<svg viewBox="0 0 16 16"><path d="M8 2.2 9.9 6l4.1.6-3 2.9.7 4.1L8 11.7 4.3 13.6l.7-4.1-3-2.9L6.1 6z"/></svg>'
+IC_DL = '<svg viewBox="0 0 16 16"><path d="M8 2.6v7.2"/><path d="M4.9 6.9 8 10 11.1 6.9"/><path d="M3 13.1h10"/></svg>'
+IC_LENS = '<svg viewBox="0 0 16 16"><rect x="2.4" y="4.6" width="11.2" height="8.4" rx="2.2"/><circle cx="8" cy="8.8" r="2.3"/><path d="M6.1 4.6 7 3h2l.9 1.6"/></svg>'
+IC_STAR = '<svg viewBox="0 0 16 16"><path d="M8 2.4 9.8 6.1l4 .6-2.9 2.8.7 4L8 11.6 4.4 13.5l.7-4L2.2 6.7l4-.6z"/></svg>'
+IC_MORE = '<svg viewBox="0 0 16 16"><circle cx="8" cy="3.4" r="1.15" fill="currentColor" stroke="none"/><circle cx="8" cy="8" r="1.15" fill="currentColor" stroke="none"/><circle cx="8" cy="12.6" r="1.15" fill="currentColor" stroke="none"/></svg>'
+IC_FOLDER = '<svg viewBox="0 0 16 16"><path d="M2.3 5a1.5 1.5 0 0 1 1.5-1.5h2.4l1.5 1.5h4.5A1.5 1.5 0 0 1 13.7 6.5v4.4a1.5 1.5 0 0 1-1.5 1.5H3.8a1.5 1.5 0 0 1-1.5-1.5z"/></svg>'
 IC_SEARCH = '<svg viewBox="0 0 16 16" class="mag"><circle cx="7" cy="7" r="4.6"/><path d="m10.6 10.6 3.4 3.4"/></svg>'
 IC_TUNE = '<svg viewBox="0 0 16 16"><path d="M3 5.5h10M3 10.5h10"/><circle cx="6" cy="5.5" r="1.8"/><circle cx="10.5" cy="10.5" r="1.8"/></svg>'
-IC_SLIDERS = '<svg viewBox="0 0 16 16"><path d="M8 2.5v11M3.4 5.6 8 2.5l4.6 3.1M3.4 10.4 8 13.5l4.6-3.1"/></svg>'
 
-SHORTCUT_ICONS = [
-    ('<rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10.2h18M8 2.8v4.2M16 2.8v4.2"/>', 'Calendar'),
-    ('<path d="M3 7.4A2.2 2.2 0 0 1 5.2 5.2h4.3l2 2h7.3a2.2 2.2 0 0 1 2.2 2.2v8.4a2.2 2.2 0 0 1-2.2 2.2H5.2A2.2 2.2 0 0 1 3 17.8z"/>', 'Files'),
-    ('<rect x="3" y="4.2" width="18" height="15.6" rx="2.5"/><circle cx="8.4" cy="9.4" r="1.7"/><path d="m3.8 17.6 5.8-5.6 3.9 3.8 3-2.2 4.5 4"/>', 'Photos'),
-    ('<path d="M12 3.2 14.6 8.6 20.4 9.5 16.2 13.6 17.2 19.4 12 16.6 6.8 19.4 7.8 13.6 3.6 9.5 9.4 8.6z"/>', 'Starred'),
-    ('<rect x="3" y="5.2" width="18" height="13.6" rx="2.5"/><path d="m3.6 7 8.4 5.6L20.4 7"/>', 'Mail'),
-    ('<path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.99 5.99 0 0 0 6 14h13a5 5 0 0 0 .35-9.96z"/>', 'Cloud'),
-    ('<path d="M9.2 17.4V6.2l9.4-2v11"/><circle cx="6.6" cy="17.8" r="2.6"/><circle cx="16" cy="15.8" r="2.6"/>', 'Music'),
-    ('<rect x="3" y="5" width="18" height="15" rx="2.5"/><path d="M6.8 9.2h6.4M6.8 12.2h6.4M6.8 15.2h4M15.8 9.2h2M15.8 12.2h2"/>', 'News'),
+# new-tab shortcut tiles: (glyph, label, disc colour, glyph colour)
+def _tile(path, label, disc, glyph):
+    return (f'<div class="tile"><div class="disc" style="background:{disc};color:{glyph}">'
+            f'<svg viewBox="0 0 24 24">{path}</svg></div><b>{label}</b></div>')
+
+
+SHORTCUTS = [
+    _tile('<path d="M8.6 6.4 16.8 12l-8.2 5.6z"/>', 'Videos', hexs(FRAME), '#FFFFFF'),
+    _tile('<circle cx="12" cy="12" r="8.4"/>'
+          '<path d="M3.6 12h16.8M12 3.6c2.3 2.4 3.5 5.3 3.5 8.4s-1.2 6-3.5 8.4'
+          'c-2.3-2.4-3.5-5.3-3.5-8.4s1.2-6 3.5-8.4z"/>',
+          'Web', hexs(FRAME_INC), '#FFFFFF'),
+    _tile('<path d="M12 6.4v11.2M6.4 12h11.2"/>', 'Add shortcut', hexs(TAB_BG), hexs(TB_ICON)),
 ]
 
 WINDOW_BTNS = (
@@ -154,14 +158,10 @@ WINDOW_BTNS = (
     '<svg viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6"/></svg>',
 )
 
-BOOKMARKS = ['Figma', 'Linear', 'Notion', 'GitHub', 'Dribbble', 'Gmail', 'Drive', 'Maps']
+BOOKMARKS = ['Bookmarks', 'Reading', 'Design', 'Inspiration']
 TAB_TITLES = [
-    ('Chill Wave Theme', True),
-    ('Design inspiration', False),
+    ('New Tab', True),
     ('Reading list', False),
-    ('Weekly notes', False),
-    ('Side project', False),
-    ('Travel ideas', False),
 ]
 
 
@@ -214,47 +214,48 @@ svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-l
 .win-btn svg{width:12px;height:12px}
 
 /* toolbar */
-.toolbar{height:44px;background:var(--toolbar);display:flex;align-items:center;gap:6px;padding:0 10px}
+.toolbar{height:44px;background:var(--toolbar);display:flex;align-items:center;gap:4px;padding:0 8px 0 10px}
 .nav{width:30px;height:30px;display:flex;align-items:center;justify-content:center;
      color:var(--tb-icon);border-radius:15px}
 .nav svg{width:17px;height:17px}
-.omni{flex:1;max-width:640px;height:32px;background:var(--omni-bg);border-radius:16px;
-      display:flex;align-items:center;gap:9px;padding:0 13px;margin:0 8px;
-      box-shadow:0 0 0 1px rgba(0,0,0,.07)}
-.mag{width:15px;height:15px;color:var(--ink);flex:0 0 15px}
-.omni span{font-size:13px;color:var(--omni-text);opacity:.62}
-.tools{display:flex;align-items:center;gap:4px;margin-left:auto}
-.tool{width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--tb-icon)}
+.omni{flex:1;height:30px;background:var(--omni-bg);border-radius:15px;
+      display:flex;align-items:center;gap:9px;padding:0 13px;margin:0 10px;
+      box-shadow:0 0 0 1px rgba(0,0,0,.11),0 1px 2px rgba(0,0,0,.05)}
+.mag{width:15px;height:15px;color:var(--ink);flex:0 0 15px;opacity:.8}
+.omni span{font-size:13px;color:var(--omni-text);opacity:.72;flex:1}
+.right{display:flex;align-items:center;gap:12px}
+.right svg{width:15px;height:15px}
+.gblue{color:#1A73E8}
+.tools{display:flex;align-items:center;gap:2px}
+.tool{width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:#5F6368}
 .tool svg{width:16px;height:16px}
-.avatar{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--tb-icon);
-        margin-left:6px;opacity:.85}
 
 /* bookmark bar */
-.bmbar{height:36px;background:var(--toolbar);display:flex;align-items:center;gap:20px;
+.bmbar{height:36px;background:var(--toolbar);display:flex;align-items:center;gap:22px;
        padding:0 14px;box-shadow:inset 0 -1px 0 rgba(0,0,0,.07)}
-.bm{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--bm-text);opacity:.95}
-.bm svg{width:13px;height:13px;color:var(--bm-text);opacity:.75}
-.bm .fav{flex:0 0 13px}
-.bm .fav-g{width:13px;height:13px;fill:var(--bm-text);stroke:none;opacity:.78}
-.bm-apps{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--bm-text)}
-.bm-apps svg{width:13px;height:13px;opacity:.75}
+.bm{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--bm-text)}
+.bm svg{width:14px;height:14px;color:var(--bm-text);opacity:.75}
 
 /* new tab page */
 .ntp{flex:1;background:var(--ntp-bg);position:relative;display:flex;
-     flex-direction:column;align-items:center;padding-top:196px}
-.glogo{font-size:44px;font-weight:500;letter-spacing:.5px;color:var(--ink);font-family:'Segoe UI',Arial,sans-serif}
-.search{margin-top:26px;width:580px;height:46px;background:#FFFFFF;border-radius:23px;
-        display:flex;align-items:center;gap:12px;padding:0 18px;
-        box-shadow:0 0 0 1px rgba(0,0,0,.09),0 1px 3px rgba(0,0,0,.05)}
-.search .mag{width:17px;height:17px}
-.search span{font-size:15px;color:var(--ink);opacity:.85}
-.tiles{margin-top:36px;display:flex;gap:28px}
-.tile{display:flex;flex-direction:column;align-items:center;width:74px}
-.tile .disc{width:54px;height:54px;border-radius:50%;background:#FFFFFF;
-            box-shadow:0 0 0 1px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.05);
-            display:flex;align-items:center;justify-content:center;color:var(--ink)}
-.tile .disc svg{width:24px;height:24px;stroke-width:1.6}
-.tile b{font-size:11.5px;font-weight:400;color:var(--ink);margin-top:9px;opacity:.9}
+     flex-direction:column;align-items:center;padding-top:72px}
+/* Chrome draws the alternate Google mark in one flat colour; calibrated here to
+   the theme link colour - change this if the installed browser renders another tone */
+.glogo{font-size:68px;font-weight:400;letter-spacing:-1.5px;color:var(--ntp-link);
+       font-family:'Segoe UI',Arial,sans-serif;line-height:1}
+.search{margin-top:24px;width:584px;height:54px;background:#FFFFFF;border-radius:27px;
+        display:flex;align-items:center;gap:13px;padding:0 20px;
+        box-shadow:0 0 0 1px rgba(0,0,0,.05),0 1px 6px rgba(32,33,36,.16)}
+.search .mag{width:18px;height:18px;opacity:.75}
+.search span{font-size:16px;color:var(--ink);opacity:.78;flex:1}
+.search .right{gap:14px}
+.search .right svg{width:17px;height:17px}
+.tiles{margin-top:28px;display:flex;gap:36px}
+.tile{display:flex;flex-direction:column;align-items:center;width:76px}
+.tile .disc{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;
+            justify-content:center;box-shadow:0 1px 3px rgba(32,33,36,.14)}
+.tile .disc svg{width:22px;height:22px;stroke-width:1.7}
+.tile b{font-size:11.5px;font-weight:400;color:var(--ink);margin-top:10px;opacity:.88}
 .customize{position:absolute;right:24px;bottom:20px;height:32px;padding:0 15px;border-radius:16px;
            background:#202124;color:#FFFFFF;display:flex;align-items:center;gap:8px;font-size:12px}
 .customize svg{width:14px;height:14px}
@@ -270,23 +271,17 @@ svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-l
     <div class="nav">$IC_BACK</div>
     <div class="nav">$IC_FWD</div>
     <div class="nav">$IC_RELOAD</div>
-    <div class="omni">$IC_SEARCH<span>Search Google or type a URL</span></div>
-    <div class="tools">
-      <div class="tool">$IC_APPS</div>
-      <div class="tool">$IC_SLIDERS</div>
-      <div class="tool">$IC_DL</div>
-      <div class="tool">$IC_BM</div>
-      <div class="avatar"></div>
+    <div class="omni">$IC_SEARCH<span>Search or type a URL</span>
+      <div class="right"><span class="gblue">$IC_DL</span><span class="gblue">$IC_LENS</span></div>
     </div>
+    <div class="tools"><div class="tool">$IC_STAR</div><div class="tool">$IC_MORE</div></div>
   </div>
-  <div class="bmbar">
-    <div class="bm">$IC_STAR<span>Bookmarks</span></div>
-    $BOOKMARKS
-    <div class="bm-apps">$IC_APPS<span>Apps</span></div>
-  </div>
+  <div class="bmbar">$BOOKMARKS</div>
   <div class="ntp">
     <div class="glogo">Google</div>
-    <div class="search">$IC_SEARCH<span>Search Google or type a URL</span></div>
+    <div class="search">$IC_SEARCH<span>Search Google or type a URL</span>
+      <div class="right"><span class="gblue">$IC_DL</span><span class="gblue">$IC_LENS</span></div>
+    </div>
     <div class="tiles">$TILES</div>
     <div class="customize">$IC_TUNE<span>Customize Chrome</span></div>
   </div>
@@ -303,18 +298,14 @@ def html_browser():
         cls = "active" if active else "idle"
         tabs.append(f'<div class="tab {cls}"><span class="fav">{tab_svg(i)}</span>'
                     f'<span class="title">{title}</span>{X_BTN}</div>')
-    bookmarks = "".join(
-        f'<div class="bm"><span class="fav">{tab_svg(i + 2)}</span><span>{b}</span></div>'
-        for i, b in enumerate(BOOKMARKS))
+    bookmarks = "".join(f'<div class="bm">{IC_FOLDER}<span>{b}</span></div>' for b in BOOKMARKS)
     winbtns = "".join(f'<div class="win-btn">{b}</div>' for b in WINDOW_BTNS)
-    tiles = "".join(
-        f'<div class="tile"><div class="disc"><svg viewBox="0 0 24 24">{d}</svg></div><b>{n}</b></div>'
-        for d, n in SHORTCUT_ICONS)
+    tiles = "".join(SHORTCUTS)
     sub = dict(PALETTE)
     sub.update(TABS="".join(tabs), BOOKMARKS=bookmarks, WINBTNS=winbtns, TILES=tiles,
                IC_BACK=IC_BACK, IC_FWD=IC_FWD, IC_RELOAD=IC_RELOAD, IC_SEARCH=IC_SEARCH,
-               IC_APPS=IC_APPS, IC_DL=IC_DL, IC_BM=IC_BM, IC_STAR=IC_STAR,
-               IC_SLIDERS=IC_SLIDERS, IC_TUNE=IC_TUNE)
+               IC_DL=IC_DL, IC_LENS=IC_LENS, IC_STAR=IC_STAR, IC_MORE=IC_MORE,
+               IC_FOLDER=IC_FOLDER, IC_TUNE=IC_TUNE)
     return BROWSER_HTML.substitute(sub)
 
 
