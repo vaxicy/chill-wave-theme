@@ -13,13 +13,17 @@
 
 ## About
 
-Chill Wave drains the browser in soft violet tides. A lilac frame carries the window and the tab strip, an almost-white toolbar and bookmark bar sit just below it, and the new tab page opens on a near-white surface where a single deep-blue accent marks links and headings.
+Chill Wave washes the browser in soft violet tides. A lilac frame carries the window and the tab strip, an almost-white toolbar and bookmark bar sit just below it, and the new tab page opens on a near-white surface where a single deep-blue accent marks links and headings.
 
 Every layer is painted as one flat solid colour, so nothing competes for attention while you read, write or plan. Text tones are tuned so tab titles, toolbar icons, bookmarks and the address bar stay legible against the light surfaces, and incognito windows keep a slightly deeper violet frame so private windows stay visually distinct.
 
 ## Preview
 
+*The full window: lilac frame, mist toolbar and the ivory new tab page.*
+
 ![Chill Wave Theme browser preview](https://raw.githubusercontent.com/vaxicy/chill-wave-theme/main/store-assets/screenshots/en/screenshot-1-browser.png)
+
+*The four colours the theme is built from.*
 
 ![Chill Wave Theme colour palette](https://raw.githubusercontent.com/vaxicy/chill-wave-theme/main/store-assets/screenshots/en/screenshot-2-introduction.png)
 
@@ -45,8 +49,7 @@ Some parts of the browser are painted by Chrome itself rather than by the theme 
 
 - **Google mark on the new-tab page:** the manifest sets `ntp_logo_alternate: 1`, so Chrome draws it as one flat colour instead of the brand colours — on this ivory surface it resolves to the theme's Tide Blue.
 - **Shortcut tiles:** the round new-tab shortcuts are page content, drawn here in theme violet with a neutral "Add shortcut" tile.
-- **Toolbar glyphs:** the star, the ⋮ menu, and the download / Lens icons inside the address bar are Chrome's own UI, so they keep Chrome's tones.
-- **Customize Chrome pill:** Chrome keeps its own dark surface with white text.
+- **Chrome's own UI:** the star, the ⋮ menu, the download / Lens icons in the address bar and the Customize Chrome pill keep Chrome's own tones rather than the theme's.
 - **Window buttons:** minimize / maximize / close stay in the light tab-text tone against the lilac frame.
 - **Address bar:** the omnibox keeps its own near-white surface, so it reads slightly brighter than the toolbar around it.
 
@@ -97,7 +100,7 @@ Search for **Chill Wave Theme** in the Chrome Web Store and install it.
 python3 scripts/package.py
 ```
 
-The archive is written as `chill-wave-theme-<version>.zip` into the default output folder (the parent of this project). The version stays `1.0.0` for the first store upload.
+The archive is written as `chill-wave-theme-<version>.zip` into the default output folder two levels above this project (`...\vibe coding\`). The version stays `1.0.0` for the first store upload.
 
 Packaged: `manifest.json`, `README.md`, `LICENSE`, `logo/`. Left out, because the Chrome Web Store takes them as separate uploads: `store-assets/` (screenshots, promo tiles, listing text), `scripts/`, `.gitignore`. The script re-reads `manifest.json` from inside the finished archive and fails if the archive root or the referenced files are wrong.
 
@@ -108,4 +111,4 @@ Non-Commercial License — personal use permitted.
 - ✅ Personal use, modification for personal use, sharing with attribution.
 - ❌ Commercial use — a commercial licence is required.
 
-See [LICENSE](LICENSE) for the full text.
+For commercial licensing, contact the author. See [LICENSE](LICENSE) for the full text.
