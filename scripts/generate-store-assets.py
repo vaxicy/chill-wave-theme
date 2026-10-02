@@ -15,6 +15,7 @@ import base64
 import json
 import os
 import shutil
+import time
 import colorsys
 from pathlib import Path
 from string import Template
@@ -253,30 +254,30 @@ svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-l
 
 /* new tab page */
 .ntp{flex:1;background:var(--ntp-bg);position:relative;display:flex;
-     flex-direction:column;align-items:center;padding-top:72px}
+     flex-direction:column;align-items:center;padding-top:118px}
 /* Chrome draws the alternate Google mark in one flat colour; tone sampled from the
    installed browser (#9AA0A6 soft grey on this ivory surface) - update here if it
    renders differently and re-run, never patch the PNG. */
 .glogo{font-size:76px;font-weight:600;letter-spacing:-1.5px;color:#9AA0A6;
        font-family:'Segoe UI',Arial,sans-serif;line-height:1}
-.search{margin-top:24px;width:584px;height:54px;background:#FFFFFF;border-radius:27px;
-        display:flex;align-items:center;gap:13px;padding:0 20px;
-        box-shadow:0 0 0 1px rgba(0,0,0,.05),0 1px 6px rgba(32,33,36,.16)}
-.search .mag{width:18px;height:18px;opacity:.75}
-.search span{font-size:16px;color:var(--ink);opacity:.78;flex:1}
+.search{margin-top:33px;width:628px;height:44px;background:#FFFFFF;border-radius:22px;
+        display:flex;align-items:center;gap:12px;padding:0 20px;
+        box-shadow:0 0 0 1px rgba(0,0,0,.05),0 1px 6px rgba(32,33,36,.15)}
+.search .mag{width:17px;height:17px;opacity:.75}
+.search span{font-size:15px;color:var(--ink);opacity:.78;flex:1}
 .search .right{gap:14px}
-.search .right svg{width:18px;height:18px}
+.search .right svg{width:17px;height:17px}
 .search .right .mic{color:#5F6368}
-.ntp-top{position:absolute;right:22px;top:14px;display:flex;align-items:center;gap:20px;
+.ntp-top{position:absolute;right:22px;top:20px;display:flex;align-items:center;gap:20px;
          color:#5F6368}
 .ntp-act{display:flex;align-items:center;gap:7px;font-size:12.5px;opacity:.92}
 .ntp-act svg{width:15px;height:15px;stroke-width:1.5}
-.tiles{margin-top:28px;display:flex;gap:36px}
+.tiles{margin-top:32px;display:flex;gap:34px}
 .tile{display:flex;flex-direction:column;align-items:center;width:76px}
-.tile .disc{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;
+.tile .disc{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;
             justify-content:center;box-shadow:0 1px 3px rgba(32,33,36,.14)}
-.tile .disc svg{width:22px;height:22px;stroke-width:1.7}
-.tile b{font-size:11.5px;font-weight:400;color:var(--ink);margin-top:10px;opacity:.88}
+.tile .disc svg{width:21px;height:21px;stroke-width:1.7}
+.tile b{font-size:11.5px;font-weight:400;color:var(--ink);margin-top:9px;opacity:.88}
 .customize{position:absolute;right:24px;bottom:20px;height:32px;padding:0 15px;border-radius:16px;
            background:#202124;color:#FFFFFF;display:flex;align-items:center;gap:8px;font-size:12px}
 .customize svg{width:14px;height:14px}
@@ -454,6 +455,19 @@ def html_promo_marquee(shot_png):
 
 
 # ---------- render ----------
+def safe_copy(src, dst, attempts=4):
+    """Copy with retries: writing under a non-ASCII project path can fail
+    intermittently with OSError errno 22 on Windows."""
+    for i in range(attempts):
+        try:
+            shutil.copy(src, dst)
+            return
+        except OSError:
+            if i == attempts - 1:
+                raise
+            time.sleep(0.4)
+
+
 def render(pw, html, w, h, out):
     page = pw.new_page(viewport={"width": w, "height": h}, device_scale_factor=1)
     page.set_content(html, wait_until="load")
@@ -480,9 +494,9 @@ def main():
         finally:
             b.close()
     for name in ("screenshot-1-browser.png", "screenshot-2-introduction.png"):
-        shutil.copy(REF / name, SHOT / name)
-    shutil.copy(REF / "promo-440x280.png", PROMO / "440x280.png")
-    shutil.copy(REF / "promo-1400x560.png", PROMO / "1400x560.png")
+        safe_copy(REF / name, SHOT / name)
+    safe_copy(REF / "promo-440x280.png", PROMO / "440x280.png")
+    safe_copy(REF / "promo-1400x560.png", PROMO / "1400x560.png")
     print("done -> 4 store assets (2 screenshots + 2 promo)")
 
 

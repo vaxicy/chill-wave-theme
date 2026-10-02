@@ -21,11 +21,11 @@ Every layer is painted as one flat solid colour, so nothing competes for attenti
 
 *The full window: lilac frame, mist toolbar and the ivory new tab page.*
 
-![Chill Wave Theme browser preview](https://raw.githubusercontent.com/vaxicy/chill-wave-theme/main/store-assets/screenshots/en/screenshot-1-browser.png)
+![Chill Wave Theme browser preview](https://raw.githubusercontent.com/vaxicy/chill-wave-theme/main/store-assets/screenshots/en/screenshot-1-browser.png?v=2)
 
 *The four colours the theme is built from.*
 
-![Chill Wave Theme colour palette](https://raw.githubusercontent.com/vaxicy/chill-wave-theme/main/store-assets/screenshots/en/screenshot-2-introduction.png)
+![Chill Wave Theme colour palette](https://raw.githubusercontent.com/vaxicy/chill-wave-theme/main/store-assets/screenshots/en/screenshot-2-introduction.png?v=2)
 
 ## Color Palette
 
